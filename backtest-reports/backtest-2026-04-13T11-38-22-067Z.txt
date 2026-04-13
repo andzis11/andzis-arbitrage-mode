@@ -1,0 +1,57 @@
+══════════════════════════════════════════════════════════════════════
+📊 BACKTEST REPORT
+══════════════════════════════════════════════════════════════════════
+
+⚙️  CONFIGURATION
+──────────────────────────────────────────────────────────────────────
+  Pair: So111111... → EPjFWdd5...
+  Period: 12/04/2026, 18.38.21 → 13/04/2026, 18.38.21
+  Duration: 1d 0h
+  Trade Size: 0.1 SOL
+  Slippage: 1.00%
+  Auto Threshold: 1.00%
+  Manual Threshold: 0.30%
+  Jito Tip: 0.00005 SOL
+  Realistic Fees: Yes
+
+💰 PERFORMANCE SUMMARY
+──────────────────────────────────────────────────────────────────────
+  Net PnL: -11.335149 SOL (-0.262%)
+  Total Input: 4320.000000 SOL
+  Total Output: 1729.406157 SOL
+  Total Fees: 0.947375 SOL
+  Total Jito Tips: 0.861250 SOL
+  Total Slippage Cost: 17.293932 SOL
+
+📈 TRADE STATISTICS
+──────────────────────────────────────────────────────────────────────
+  Total Signals: 43200
+  Successful: 0 (0.0%)
+  Failed: 17225 (39.9%)
+  Skipped: 25975 (60.1%)
+  Win Rate: 0.00%
+  Trades/Hour: 0.00
+
+💵 PROFIT/LOSS DETAILS
+──────────────────────────────────────────────────────────────────────
+  Best Trade: 0.000000 SOL
+  Worst Trade: 0.000000 SOL
+  Avg Profit: 0.000000 SOL
+  Avg Loss: 0.000000 SOL
+  Profit Factor: 0.00
+
+🛡️  RISK METRICS
+──────────────────────────────────────────────────────────────────────
+  Max Drawdown: 0.00%
+  Sharpe Ratio: 0.00
+  Max Consecutive Losses: 0
+
+🎯 VERDICT
+──────────────────────────────────────────────────────────────────────
+  ❌ Strategy is not profitable: -11.335149 SOL
+  🔴 Very low win rate: 0.0% - Strategy needs optimization
+  🔴 Negative Sharpe ratio: 0.00 - Strategy not viable
+  
+  💡 RECOMMENDATION: Increase thresholds or reduce trade size to improve profitability.
+
+══════════════════════════════════════════════════════════════════════

@@ -1,0 +1,24 @@
+
+📊 <b>BACKTEST RESULTS</b>
+
+❌ <b>Net PnL:</b> <b>-11.335149 SOL</b> (-0.262%)
+
+📈 <b>Statistics:</b>
+🔴 Win Rate: 0.00%
+🔢 Total Signals: 43200
+✅ Successful: 0
+❌ Failed: 17225
+⏭️ Skipped: 25975
+
+💰 <b>Trade Details:</b>
+🏆 Best: 0.000000 SOL
+💀 Worst: 0.000000 SOL
+📊 Avg Profit: 0.000000 SOL
+📉 Avg Loss: 0.000000 SOL
+
+🛡️ <b>Risk Metrics:</b>
+📉 Max Drawdown: 0.00%
+📊 Sharpe Ratio: 0.00
+⚠️ Max Consecutive Losses: 0
+
+⏱️ <b>Period:</b> 1d 0h
