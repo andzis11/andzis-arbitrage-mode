@@ -4,6 +4,7 @@ import { CONFIG } from "../config";
 import { pnlTracker } from "../engine/pnl";
 import { ArbOpportunity } from "../engine/arbEngine";
 import { formatRouterStats, resetRouterStats } from "../executor/router";
+import { balanceManager } from "../engine/balanceManager";
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ let dynamicConfig = {
   slippageBps: CONFIG.SLIPPAGE_BPS,
   cooldownMs: CONFIG.COOLDOWN_MS,
   forceManual: false,
+  fastMode: CONFIG.FAST_MODE,
 };
 
 export function sendSignal(trade: ArbOpportunity): void {
@@ -86,28 +88,31 @@ Use /help to see available commands.
 <b>📖 Bot Commands:</b>
 
 <b>📊 Monitoring:</b>
-/status - Bot status & current config
+/status - Bot status & config
 /pnl - PnL report
+/router - Multi-aggregator stats
+/balance - Capital & position management
 /trades - Recent trades
-/router - Multi-aggregator router stats
 
 <b>⚙️ Configuration:</b>
 /size [sol] - Set trade size (e.g., /size 0.5)
-/threshold [auto] [manual] - Set thresholds (e.g., /threshold 0.01 0.003)
-/slippage [bps] - Set slippage in bps (e.g., /slippage 100)
-/cooldown [ms] - Set cooldown in ms (e.g., /cooldown 2000)
+/threshold [auto] [manual] - Set thresholds
+/slippage [bps] - Set slippage (e.g., /slippage 100)
+/cooldown [ms] - Set cooldown (e.g., /cooldown 2000)
 /manual - Toggle manual/auto mode
 
 <b>🎮 Control:</b>
-/startbot - Start the bot
-/stopbot - Stop the bot
+/startbot - Start trading
+/stopbot - Stop trading
+/fast - ⚡ Fast mode (lower latency)
+/safe - 🛡️ Safe mode (full validation)
 /reset - Reset daily PnL
 /resetrouter - Reset router stats
 
 <b>⚠️ Examples:</b>
-/size 0.5 → Trade 0.5 SOL per trade
-/threshold 0.015 0.005 → Auto at 1.5%, Manual at 0.5%
-/slippage 50 → 0.5% slippage
+/size 0.5 → Trade 0.5 SOL
+/threshold 0.015 0.005 → Auto 1.5%, Manual 0.5%
+/fast → Enable fast mode
 `;
     bot.sendMessage(chatId, message, { parse_mode: "HTML" });
   });
@@ -281,6 +286,36 @@ Use /help to see available commands.
     bot.sendMessage(chatId, `✅ Router statistics cleared`, {
       parse_mode: "HTML",
     });
+  });
+
+  // Fast mode - lower latency, skip manual approval
+  bot.onText(/\/fast/, () => {
+    configRef.fastMode = true;
+    bot.sendMessage(
+      chatId,
+      `⚡ <b>FAST MODE ON</b>\nLower latency, auto-execute profitable trades`,
+      {
+        parse_mode: "HTML",
+      },
+    );
+  });
+
+  // Safe mode - more checks, higher thresholds
+  bot.onText(/\/safe/, () => {
+    configRef.fastMode = false;
+    bot.sendMessage(
+      chatId,
+      `🛡️ <b>SAFE MODE ON</b>\nFull validation, manual approval for medium profits`,
+      {
+        parse_mode: "HTML",
+      },
+    );
+  });
+
+  // Balance check
+  bot.onText(/\/balance/, () => {
+    const summary = balanceManager.formatSummary();
+    bot.sendMessage(chatId, summary, { parse_mode: "HTML" });
   });
 
   // Callback query handler

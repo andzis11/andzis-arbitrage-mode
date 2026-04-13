@@ -35,4 +35,40 @@ export const CONFIG = {
 
   // Dynamic trade size
   DEFAULT_TRADE_SIZE_SOL: 0.1,
+
+  // Trading pairs (multi-pair parallel)
+  TRADING_PAIRS: [
+    {
+      name: "SOL/USDC",
+      input: "So11111111111111111111111111111111111111112",
+      output: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+      minVolume: 100000,
+      enabled: true,
+    },
+    {
+      name: "SOL/USDT",
+      input: "So11111111111111111111111111111111111111112",
+      output: "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+      minVolume: 50000,
+      enabled: true,
+    },
+  ],
+
+  // Multi-hop settings
+  ENABLE_MULTI_HOP: true,
+  MAX_HOPS: 3,
+  MIN_MULTI_HOP_PROFIT_BPS: 10, // 0.1%
+
+  // Fast mode (lower latency, skip some checks)
+  FAST_MODE: false,
+};
+
+// Token constants
+export const TOKENS = {
+  SOL: "So11111111111111111111111111111111111111112",
+  USDC: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+  USDT: "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+  BONK: "DezXAZ8z7PnrnRJjz3y6B9V5gE6x6L8g8r8r8r8r8r8",
+  JUP: "JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN",
+  RAY: "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
 };
